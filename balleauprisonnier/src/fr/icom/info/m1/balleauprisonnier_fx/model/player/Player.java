@@ -147,6 +147,7 @@ public class Player extends Publisher implements CollisionConsequences {
 	}
 
 	public void setSpeed(double speed) {
+		this.rotationSpeed = speed/4;
 		this.moveSpeed = speed;
 	}
 

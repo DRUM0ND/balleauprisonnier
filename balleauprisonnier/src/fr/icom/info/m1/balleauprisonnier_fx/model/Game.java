@@ -80,10 +80,11 @@ public class Game extends Publisher implements Subscriber {
 	}
 	
 	public void setSpeed(double speed) {
+		speed*=4;
 		for (Player player : getPlayers()) {
 			player.setSpeed(speed);
 		}
-		projectile.setSpeed(speed*4);
+		projectile.setSpeed(speed*5);
 	}
 		
 
@@ -102,7 +103,8 @@ public class Game extends Publisher implements Subscriber {
 		}
 	}
 	
-	public void nextFrame() {
+	public void nextFrame(double gameSpeed) {
+		setSpeed(gameSpeed);
 		removeDeadPlayers();
 		if (isGameWon()) {
 			finishGame();

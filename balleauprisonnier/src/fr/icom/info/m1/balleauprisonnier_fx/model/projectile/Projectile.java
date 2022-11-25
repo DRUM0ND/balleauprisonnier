@@ -61,23 +61,6 @@ public class Projectile extends Publisher implements CollisionConsequences {
 	private double getDeltaY() {
 		return Math.sin(Math.toRadians(direction));
 	}
-
-	private boolean verifyIfInBoundaries() {
-		boolean outOfBoundaries = ! boundaries.isPointInside(x, y);
-		if (outOfBoundaries) {
-			this.stuck = true;
-		}
-		if (x > boundaries.getRightLimit()-speed) {
-			this.direction = Math.toDegrees(mirrorYAngle(direction));
-			setX(getX()-speed);
-		}
-		if (x < boundaries.getLeftLimit()+speed) {
-			this.direction = Math.toDegrees(mirrorYAngle(direction));
-			setX(getX()+speed);
-		}
-		return this.stuck;
-
-	}
 	
 	private double mirrorYAngle(double angleInDegree) {
 		double angle = Math.toRadians(angleInDegree);
@@ -94,10 +77,32 @@ public class Projectile extends Publisher implements CollisionConsequences {
 	}
 
 	public void moveThrowDirection() {
+
 		if (!isStucked()) {
-			verifyIfInBoundaries();
-			setX(getX() + getDeltaX() * speed);
-			setY(getY() + getDeltaY() * speed);
+			double newX = getX() + getDeltaX() * speed;
+			double newY = getY() + getDeltaY() * speed;
+			if (boundaries.isPointInside(newX, newY)) {
+				setX(newX);
+				setY(newY);
+			} else {
+				if (newY < boundaries.getTopLimit()) {
+					setY(boundaries.getTopLimit() + 1);
+					setStuck(true);
+					
+				} else if(newY > boundaries.getBottomLimit()) {
+					setY(boundaries.getBottomLimit() - 1);
+					setStuck(true);
+					
+				} else if (newX > boundaries.getRightLimit()) {
+					this.direction = Math.toDegrees(mirrorYAngle(direction));
+					setX(boundaries.getRightLimit() - 1);
+					
+				} else if (newX < boundaries.getLeftLimit()) {
+					this.direction = Math.toDegrees(mirrorYAngle(direction));
+					setX(boundaries.getLeftLimit() + 1);
+				}
+				
+			}
 		}
 		notifySubscribers();
 	}

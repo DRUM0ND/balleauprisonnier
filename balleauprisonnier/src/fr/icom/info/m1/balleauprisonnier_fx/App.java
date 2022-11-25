@@ -96,7 +96,7 @@ public class App extends Application {
 		this.gameTimer = new GameTimer(game, gameView);
 		MenuBar menuBar = new GameMenuBar(game, gameTimer);
 		
-		ScorePane scorePane = new ScorePane(game);
+		ScorePane scorePane = new ScorePane(game, gameTimer.getFrameRate());
 		game.subscribe(scorePane);
 		scorePane.maxHeightProperty().bind(field.heightProperty().subtract(120));
 		

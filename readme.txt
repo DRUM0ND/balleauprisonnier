@@ -1,12 +1,14 @@
 Projet de Baptiste CLOCHARD
-master 1 informatique université de Lyon Lumière 2.
+master 1 informatique universitÃ© de Lyon LumiÃ¨re 2.
 
 Le code source de l'application se trouve dans le dossier balleauprisonnier.
 
-Le projet peut être lancé en se plaçant dans le dossier balleauprisonnier et en exécutant la commande "mvn javfx:run"
+Le projet peut Ãªtre lancÃ© en se plaÃ§ant dans le dossier balleauprisonnier et en exÃ©cutant la commande "mvn javfx:run"
 
-Un .exe de l'application exécutable sur windows x64 peut être trouvé dans le dossier portable. Il peut être exécuté par simple double clic.
-La génération de ce .exe peut être réalisée à l'aide de la commande "mvn gluonfx:build" dans l'invite de commande "x64 native tools command", référez vous au rapport pour connaitre les prérequis.
+Un .exe de l'application exÃ©cutable sur windows x64 peut Ãªtre trouvÃ© dans le dossier portable_windows. Il peut Ãªtre exÃ©cutÃ© par simple double clic.
+La gÃ©nÃ©ration de ce .exe peut Ãªtre rÃ©alisÃ©e Ã  l'aide de la commande "mvn gluonfx:build" dans l'invite de commande "x64 native tools command", rÃ©fÃ©rez vous au rapport pour connaitre les prÃ©requis.
 
-Le .exe doit être laissé à côté du dossier assets, mais il peut être exécuté ailleur sur n'importe quel système windows, même dépourvu de javafx ou de java.
+De mÃªme un fichier executable de l'application pour linux x se trouve dans le dossier portable_linux. Il peut Ãªtre gÃ©nÃ©rÃ© Ã  l'aide de la commande "mvn gluonfx:build". Pour connaÃ®tre les prÃ©requis pour linux vous pouvez vous rÃ©ferez Ã  la documentation de gluonfx : https://docs.gluonhq.com/#platforms_linux
+
+Le .exe doit Ãªtre laissÃ© Ã  cÃ´tÃ© du dossier assets, mais il peut Ãªtre exÃ©cutÃ© ailleur sur n'importe quel systÃ¨me windows, mÃªme dÃ©pourvu de javafx ou de java.
 
